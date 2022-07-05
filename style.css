@@ -1,0 +1,112 @@
+#cards {
+  display: flex;
+  flex-wrap: wrap;
+  width: 85%;
+  margin: 0 auto;
+}
+
+.card {
+  /* flex-basis, flex-grow, flex-shrink */
+  flex: 7% 1 1;
+  /* 依照視窗大小變化作調整=> 8vw = 視窗大小的8%*/
+  height: 8vw;
+  border: 2px solid #e0e0e0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: 2px;
+  box-sizing: border-box;
+}
+
+.card img {
+  max-width: 30%;
+  align-self: center;
+}
+
+.card p {
+  margin: 3px;
+  font-size: 10px;
+  font-family: 'Nunito', sans-serif;
+}
+
+.card p:last-child {
+  transform: rotate(180deg);
+}
+
+/* 牌背樣式 */
+/* 可依據卡片元素是否含有'.back'樣式判斷此牌是否覆蓋 */
+.back {
+  background: url('https://assets-lighthouse.alphacamp.co/uploads/image/file/9222/ExportedContentImage_00.png');
+  background-size: cover;
+}
+
+/* 配對成功 */
+.paired {
+  background-color: #dae0e3;
+}
+
+/* 標題設定 */
+#header{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin: 0 auto;
+  max-width: 85%;
+}
+
+#header .title{
+  display: flex;
+  justify-content: flex-end;
+  max-width: 100%;
+}
+
+#header .title img{
+  max-width: 3em;
+}
+
+#header .title h2{
+  padding-left: 0.5em;
+}
+
+#header .score{
+  margin: 0;
+  color: #6c90ac;
+}
+
+#header .tried{
+  margin-top: 0;
+}
+
+/* 加入動畫 */
+.wrong {
+  animation-name: wrongAnimation;
+  animation-duration: 0.2s;
+  animation-iteration-count: 5;   /* 動畫執行次數 */
+}
+/* 使用keyframes指定動畫流程 */
+@keyframes wrongAnimation {
+  to {
+    border: 2px solid #ffd45f;
+  }
+}
+
+/* Game Finished */
+.completed {
+  position: absolute;
+  z-index: 999;
+  top: 33vh;
+  background-color: RGBA(232 , 246, 254, 0.8);
+  width: 100vw;
+  padding: 50px 0;
+}
+.completed > p {
+  font-size: 1.5em;
+  color: black;
+  text-align: center;
+  margin: 0;
+}
+.completed > p:first-child{
+  font-size: 3em;
+  font-weight: 700;
+  color: #758d9a;
+}
