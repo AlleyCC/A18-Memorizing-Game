@@ -152,7 +152,7 @@ const controller = {
           view.pairCards(...model.revealedCards)
           model.revealedCards = []  //清空暫存卡片陣列
           if (model.score === 260) {
-            console.log('showGameFinished')
+            
             this.currentState = GAME_STATE.FirstCardAwaits
             view.showGameFinished()
             return
