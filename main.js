@@ -152,21 +152,16 @@ const controller = {
           view.pairCards(...model.revealedCards)
           model.revealedCards = []  //清空暫存卡片陣列
           if (model.score === 260) {
-            
             this.currentState = GAME_STATE.FirstCardAwaits
             view.showGameFinished()
             return
           }
           this.currentState = GAME_STATE.FirstCardAwaits
-        
-        } else {   // 配對失敗
-          view.showGameFinished()
+        } else {   // 配對失敗  
           this.currentState = GAME_STATE.CardMatchFailed
           view.appendWrongAnimation(...model.revealedCards)    //加入動畫
           setTimeout(this.resetCards, 1000)  //this.resetCards後面記得不要加()，因為這裡是引入函式，若加上()會變成引入resetCards函式的回傳值(=>a.k.a 回傳了一個參數進去)
-         
-        }
-        
+        }    
     }
     console.log('this.currentState', this.currentState )
     console.log('revealedCards', model.revealedCards.map((item) => item.dataset.index))
